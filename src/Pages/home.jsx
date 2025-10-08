@@ -91,7 +91,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* ---------- PERKS ---------- */}
       <div className="perks-section">
         <h1 data-aos="zoom-in-up">Discover. Connect. Innovate.</h1>
@@ -142,7 +141,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* ---------- DOMAINS ---------- */}
       <div className="domain-wrapper">
         <div className="domain-header">
@@ -156,7 +154,6 @@ const Home = () => {
         </div>
         <Carousel />
       </div>
-
       {/* ---------- EVENTS ---------- */}
       <div className="event-wrapper">
         <div className="event-header">
@@ -293,7 +290,6 @@ const Home = () => {
           <div className="stats-div3"></div>
         </div>
       </div>
-
       {/* ---------- JOINUS ---------- */}
       <div className="joinus-wrapper">
         <div className="joinus-header">

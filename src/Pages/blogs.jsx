@@ -16,7 +16,7 @@ const Blogs = () => {
 
       <div className='blog-thumbnail-grid'>
         {blogs.map((blog) => (
-          <Link to={`/blog/${blog.id}`} key={blog.id}
+          <div
               className='blog-card'
               style={{ backgroundImage: `url(${blog.thumbnail})` }}
             >
@@ -24,7 +24,9 @@ const Blogs = () => {
                 <h1>{blog.title}</h1>
                 {/* <h3>{blog.short_description}</h3> */}
               </div>
-          </Link>
+                <Link to={`/blog/${blog.id}`} key={blog.id} className='Link'></Link>
+
+          </div>
         ))}
       </div>
     </div>

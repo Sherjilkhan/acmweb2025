@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-head">
         <div className="Logo">
           <img src={acmlogo} alt="ACM Logo" />
-          <h1>#🚀ACMbeyondthemoon</h1>
+          <h1>#<i><b>ACM</b></i>beyondthemoon🚀</h1>
         </div>
         <h3>© 2025 RAIT ACM Student Chapter. All rights reserved</h3>
       </div>
