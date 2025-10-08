@@ -218,7 +218,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-       {/* ---------- FLG_EVENTS ---------- */}
+      {/* ---------- FLG_EVENTS ---------- */}
       <div className="Flagshipevent-container">
         <div className="flg-head">
           <div className="flg-head1" data-aos="fade-right">
@@ -293,35 +293,53 @@ const Home = () => {
           <div className="stats-div3"></div>
         </div>
       </div>
-     
+
       {/* ---------- JOINUS ---------- */}
       <div className="joinus-wrapper">
         <div className="joinus-header">
-          <h1 data-aos="fade-right">
-            {" "}
-            Empower Your Future. Join Our Community.
-          </h1>
-          <p data-aos="fade-right">
-            Unlock a world of opportunities and knowledge. We are a dynamic
-            community where passion meets purpose, and collaboration fuels
-            innovation. Dive into exciting events, expand your skillset, and
-            connect with like-minded individuals who are shaping tomorrow.
-            Together, we'll equip you with the tools and experiences to make a
-            real impact.
-          </p>
-          <Link
-            to={
-              "https://docs.google.com/forms/d/13SKxzPqXmRa92T0coNz0PFcYK4TUtyRRO7D9wI31G4I/closedform?pli=1"
-            }
-            target="__blank"
-            className="join-btn"
-            data-aos="fade-up"
-          >
-            {" "}
-            Join us Now
-          </Link>
+          <h3>The Difference We Make</h3>
+          <h1>Empower Your Future. Join Our Community.</h1>
+          <h2>
+            Explore the key reasons students and innovators choose to be part of
+            our vibrant community.
+          </h2>
         </div>
-        <div className="joinus-thumblnail" data-aos="fade-left"></div>
+        <div className="joinus-grid">
+          <div class="joinus-div1">
+            <h2>Our Impact on Your Growth</h2>
+
+            <ul>
+              <li>
+                Dynamic Learning Environment Unlock a world of opportunities and
+                knowledge.
+              </li>
+              <li>
+                Skill Development & Innovation Dive into exciting events, expand
+                your skillset, and collaborate on projects that fuel innovation.
+              </li>
+            </ul>
+          </div>
+          <div class="joinus-div2">
+            <h2>95%+ Member Engagement</h2>
+            <p>
+              You can rely on us to keep you connected with like-minded
+              individuals shaping tomorrow.
+            </p>
+          </div>
+          <div class="joinus-div3">
+            <h2>500+ Lives Transformed</h2>
+            <p>
+              Join countless satisfied members who've realized their potential
+              through our consistent, expert guidance and collaborative network.
+            </p>
+          </div>
+          <div class="joinus-div4">
+            <p></p>
+          </div>
+          <div class="joinus-div5">
+            <p></p>
+          </div>
+        </div>
       </div>
       {/* ---------- FAQs ---------- */}
       <div className="faqs-container">
