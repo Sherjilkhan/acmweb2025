@@ -1,9 +1,10 @@
 /* Base label styling */
 .label {
+  
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
-  color: #111827; /* neutral-900 */
+  color: #000000; /* neutral-900 */
   margin-bottom: 6px;
   line-height: 1.2;
   transition: color 0.2s ease;
@@ -21,6 +22,6 @@
 /* Dark mode (optional) */
 @media (prefers-color-scheme: dark) {
   .label {
-    color: #f9fafb; /* white in dark mode */
+    color: black; /* white in dark mode */
   }
 }

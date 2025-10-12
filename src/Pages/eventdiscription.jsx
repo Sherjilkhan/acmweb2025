@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import events from "../assets/EventData/eventdata";
-
 import { Input } from "../Compoment/Input";
 import { Label } from "../Compoment/Label";
-import styles from "./styles-form-demo.module.css"
+import styles from "./styles-form-demo.module.css";
+
 const EventDescription = () => {
   const { id } = useParams();
   const event = events.find((event) => event.id === parseInt(id));
@@ -21,6 +21,9 @@ const EventDescription = () => {
     transactionId: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
   // Auto-fill event name when event loads
   useEffect(() => {
     if (event) {
@@ -28,18 +31,14 @@ const EventDescription = () => {
     }
   }, [event]);
 
-  // Handle form field change
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       await fetch(
@@ -52,7 +51,8 @@ const EventDescription = () => {
         }
       );
 
-      alert("Form submitted successfully!");
+      setLoading(false);
+      setShowPopup(true);
       setFormData({
         eventName: event.title,
         name: "",
@@ -66,6 +66,7 @@ const EventDescription = () => {
       });
     } catch (err) {
       console.error("Error:", err);
+      setLoading(false);
       alert("Something went wrong!");
     }
   };
@@ -87,6 +88,37 @@ const EventDescription = () => {
 
   return (
     <div className="event-description">
+      {/* ---------- PRELOADER ---------- */}
+      {loading && (
+        <div className="preloader-overlay">
+          <div className="loader"></div>
+        </div>
+      )}
+
+      {/* ---------- SUCCESS POPUP ---------- */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h2>✅ Registration Successful!</h2>
+            <p>
+              Thank you for registering for <strong>{event.title}</strong>.
+              <br />
+              Please join our WhatsApp group for further updates.
+            </p>
+            <a
+              href="https://chat.whatsapp.com/CnY14iDcZhU3PCzFPUXEkE?mode=ems_wa_c"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="join-button"
+              onClick={() => setShowPopup(false)}
+            >
+              Join WhatsApp Group
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* ---------- HEADER ---------- */}
       <div className="eventdes-header">
         <div className="fade-slider">
           {event.glimpse.map((img, index) => (
@@ -109,15 +141,15 @@ const EventDescription = () => {
         </div>
       </div>
 
-      {/* Registration form */}
+      {/* ---------- FORM ---------- */}
       {isOngoingOrUpcoming ? (
         <form className={styles.form} onSubmit={handleSubmit}>
           <h2 className={styles.title}>Register Now</h2>
 
-          {/* Name */}
-          <div className={styles.field}>
+          <div className={styles.field} id="namef">
             <Label htmlFor="name">Full Name</Label>
             <Input
+             
               id="name"
               name="name"
               type="text"
@@ -128,8 +160,7 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* Email */}
-          <div className={styles.field}>
+          <div className={styles.field} id="emailf">
             <Label htmlFor="email">Email Address</Label>
             <Input
               id="email"
@@ -142,7 +173,6 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* Phone */}
           <div className={styles.field}>
             <Label htmlFor="phone">Phone Number</Label>
             <Input
@@ -156,7 +186,6 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* College Name */}
           <div className={styles.field}>
             <Label htmlFor="cllg">College Name</Label>
             <Input
@@ -170,7 +199,6 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* Branch */}
           <div className={styles.field}>
             <Label htmlFor="branch">Branch</Label>
             <Input
@@ -184,26 +212,27 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* Batch */}
-          <div className={styles.field}>
-            <Label htmlFor="batch">Batch</Label>
-            <select
-              id="batch"
-              name="batch"
-              className={styles.select}
-              value={formData.batch}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Batch</option>
-              <option value="FE">FE</option>
-              <option value="SE">SE</option>
-              <option value="TE">TE</option>
-              <option value="BE">BE</option>
-            </select>
-          </div>
+<div className={styles.field}>
+  <Label htmlFor="batch">Batch</Label>
+  <select
+    id="batch"
+    name="batch"
+    className={styles.select}
+    value={formData.batch}
+    onChange={handleChange}
+    required
+  >
+    <option value="">Select Batch</option>
+    <option value="FE">FE</option>
+    <option value="SE">SE</option>
+    <option value="TE">TE</option>
+    <option value="BE">BE</option>
+  </select>
+</div>
 
-          {/* Roll Number */}
+
+
+
           <div className={styles.field}>
             <Label htmlFor="rollNumber">Roll Number</Label>
             <Input
@@ -217,22 +246,22 @@ const EventDescription = () => {
             />
           </div>
 
-          {/* Submit */}
+          <div className={styles.field}>
+            <Label htmlFor="transactionId">Transaction ID</Label>
+            <Input
+              id="transactionId"
+              name="transactionId"
+              type="text"
+              placeholder="txn_9f8b7c6d5e4a3b2c1"
+              value={formData.transactionId}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <button className={styles.primaryButton} type="submit">
-            {"Submit Registration →"}
+            Submit Registration →
           </button>
-
-          <div className={styles.divider} />
-
-          {/* WhatsApp Group Link */}
-          <a
-            href="https://chat.whatsapp.com/CnY14iDcZhU3PCzFPUXEkE?mode=ems_wa_c"
-            className={styles.joinButton}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join WhatsApp Group
-          </a>
         </form>
       ) : (
         <h3 className="closed-msg">⚠️ Registration Closed</h3>

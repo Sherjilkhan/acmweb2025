@@ -121,7 +121,7 @@ const events = [
     title: "Winter Internship Program",
     img: wip,
     startDate: "2025-12-16",
-    endDate: "2025-01-16",
+    endDate: "2026-01-16",
     type: "Internship Program",
     glimpse: [wip1, wip2, wip3],
     short_description:

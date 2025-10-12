@@ -1394,6 +1394,111 @@
   position: relative;
   color: black;
 }
+/* ---------- Preloader ---------- */
+.preloaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 55px;
+  height: 55px;
+  border: 5px solid #dcdcdc;
+  border-top-color: #1a73e8;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Popup ---------- */
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  width: 50%;
+  height: 50vh;
+  background: rgb(0, 0, 0);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  animation: fadeIn 0.3s ease;
+}
+
+.popupCard {
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem 2.2rem;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.4s ease;
+}
+
+.popupIcon {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.popupCard h2 {
+  color: #2e7d32;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.popupCard p {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.popupBtn {
+  display: inline-block;
+  background: #25d366;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  transition: 0.2s ease-in-out;
+}
+.popupBtn:hover {
+  background: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .event-hero {
   width: 98%;
   margin-left: 1%;
@@ -1639,7 +1744,7 @@
         height: 12%;
         margin-bottom: 10%;
         padding: 5%;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 400;
       }
       .Link {
