@@ -81,7 +81,7 @@ const EventDescription = () => {
 
   return (
     <div className="event-description">
-     <div className="event-header">
+     <div className="eventdes-header">
       <div className="fade-slider">
       {event.glimpse.map((img, index) => (
         <img
@@ -92,11 +92,11 @@ const EventDescription = () => {
         />
       ))}
     </div>
-        <div className="event-header-text">
+        <div className="eventdes-header-text">
           <h1>{event.title}</h1>
           <p>{event.type}</p>
           <p>{event.startDate}-{event.endDate}</p>
-          <p>{event.short_description}</p>
+          <h3>{event.short_description}</h3>
         </div>
      </div>
 
