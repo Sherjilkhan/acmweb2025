@@ -1,0 +1,75 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, white, rgba(0, 0, 0, 0.335), white);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  width:50%;
+  margin-left: 25%;
+}
+
+.glass-form {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.glass-form input,
+.glass-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 15px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.glass-form label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background: black;
+  border: none;
+  color: white;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+  border: 0.1rem solid black;
+
+}
+
+.btn-primary:hover {
+  background: rgba(80, 78, 78, 0.675);
+  color: rgb(190, 187, 187);
+}
+
+.center-text {
+  text-align: center;
+}

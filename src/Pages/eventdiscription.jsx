@@ -4,6 +4,7 @@ import events from "../assets/EventData/eventdata";
 import { Input } from "../Compoment/Input";
 import { Label } from "../Compoment/Label";
 import styles from "./styles-form-demo.module.css";
+import RegistrationForm from "../Compoment/RegistrationForm";
 
 const EventDescription = () => {
   const { id } = useParams();
@@ -143,122 +144,7 @@ const EventDescription = () => {
 
       {/* ---------- FORM ---------- */}
       {isOngoingOrUpcoming ? (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <h2 className={styles.title}>Register Now</h2>
-
-          <div className={styles.field} id="namef">
-            <Label htmlFor="name">Full Name</Label>
-            <Input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Tyler Durden"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field} id="emailf">
-            <Label htmlFor="email">Email Address</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="projectmayhem@fc.com"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="text"
-              placeholder="9876543210"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="cllg">College Name</Label>
-            <Input
-              id="cllg"
-              name="cllg"
-              type="text"
-              placeholder="Fight Club University"
-              value={formData.cllg}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="branch">Branch</Label>
-            <Input
-              id="branch"
-              name="branch"
-              type="text"
-              placeholder="Computer Science"
-              value={formData.branch}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="batch">Batch</Label>
-            <select
-              id="batch"
-              name="batch"
-              className={styles.select}
-              value={formData.batch}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select Batch</option>
-              <option value="FE">FE</option>
-              <option value="SE">SE</option>
-              <option value="TE">TE</option>
-              <option value="BE">BE</option>
-            </select>
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="rollNumber">Roll Number</Label>
-            <Input
-              id="rollNumber"
-              name="rollNumber"
-              type="text"
-              placeholder="1234"
-              value={formData.rollNumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.field}>
-            <Label htmlFor="transactionId">Transaction ID</Label>
-            <Input
-              id="transactionId"
-              name="transactionId"
-              type="text"
-              placeholder="txn_9f8b7c6d5e4a3b2c1"
-              value={formData.transactionId}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button className={styles.primaryButton} type="submit">
-            Submit Registration →
-          </button>
-        </form>
+        <RegistrationForm EventName={event.title} />
       ) : (
         <h3 className="closed-msg">⚠️ Registration Closed</h3>
       )}
