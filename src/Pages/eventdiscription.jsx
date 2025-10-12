@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import events from "../assets/EventData/eventdata";
 
+import { Input } from "../Compoment/Input";
+import { Label } from "../Compoment/Label";
+import styles from "./styles-form-demo.module.css"
 const EventDescription = () => {
   const { id } = useParams();
   const event = events.find((event) => event.id === parseInt(id));
@@ -18,13 +21,14 @@ const EventDescription = () => {
     transactionId: "",
   });
 
-  // Auto-fill eventName from selected event
+  // Auto-fill event name when event loads
   useEffect(() => {
     if (event) {
       setFormData((prev) => ({ ...prev, eventName: event.title }));
     }
   }, [event]);
 
+  // Handle form field change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -33,17 +37,18 @@ const EventDescription = () => {
     });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzByWF65b1iCBBwtN5vRuonHGq3TYCNTg_POrQUVkCksKLhSWKZn8Ar3PQgX39LMHvx/exec", // must be the /exec URL
+        "https://script.google.com/macros/s/AKfycbzByWF65b1iCBBwtN5vRuonHGq3TYCNTg_POrQUVkCksKLhSWKZn8Ar3PQgX39LMHvx/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
-          mode: "no-cors", // 👈 important if you don’t need response
+          mode: "no-cors",
         }
       );
 
@@ -53,7 +58,7 @@ const EventDescription = () => {
         name: "",
         email: "",
         phone: "",
-        college: "",
+        cllg: "",
         branch: "",
         batch: "",
         rollNumber: "",
@@ -64,9 +69,9 @@ const EventDescription = () => {
       alert("Something went wrong!");
     }
   };
-  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto slide every 3 seconds
+  // Image carousel
+  const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
@@ -75,84 +80,117 @@ const EventDescription = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
   const today = new Date();
   const end = new Date(event.endDate);
   const isOngoingOrUpcoming = today <= end;
 
   return (
     <div className="event-description">
-     <div className="eventdes-header">
-      <div className="fade-slider">
-      {event.glimpse.map((img, index) => (
-        <img
-          key={index}
-          src={img}
-          alt={`slide-${index}`}
-          className={`fade-image ${index === currentIndex ? "active" : ""}`}
-        />
-      ))}
-    </div>
+      <div className="eventdes-header">
+        <div className="fade-slider">
+          {event.glimpse.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`slide-${index}`}
+              className={`fade-image ${index === currentIndex ? "active" : ""}`}
+            />
+          ))}
+        </div>
+
         <div className="eventdes-header-text">
           <h1>{event.title}</h1>
           <p>{event.type}</p>
-          <p>{event.startDate}-{event.endDate}</p>
+          <p>
+            {event.startDate} - {event.endDate}
+          </p>
           <h3>{event.short_description}</h3>
         </div>
-     </div>
+      </div>
 
-        {/* Registration form */}
-        {isOngoingOrUpcoming ? (
-          <form className="event-form" onSubmit={handleSubmit}>
-            <h2>Register Now</h2>
+      {/* Registration form */}
+      {isOngoingOrUpcoming ? (
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <h2 className={styles.title}>Register Now</h2>
 
-            <label>Name:</label>
-            <input
-              type="text"
+          {/* Name */}
+          <div className={styles.field}>
+            <Label htmlFor="name">Full Name</Label>
+            <Input
+              id="name"
               name="name"
+              type="text"
+              placeholder="Tyler Durden"
               value={formData.name}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Email:</label>
-            <input
-              type="email"
+          {/* Email */}
+          <div className={styles.field}>
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
               name="email"
+              type="email"
+              placeholder="projectmayhem@fc.com"
               value={formData.email}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Phone no. :</label>
-            <input
-              type="text"
+          {/* Phone */}
+          <div className={styles.field}>
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+              id="phone"
               name="phone"
+              type="text"
+              placeholder="9876543210"
               value={formData.phone}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>College Name:</label>
-            <input
-              type="text"
+          {/* College Name */}
+          <div className={styles.field}>
+            <Label htmlFor="cllg">College Name</Label>
+            <Input
+              id="cllg"
               name="cllg"
+              type="text"
+              placeholder="Fight Club University"
               value={formData.cllg}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Branch:</label>
-            <input
-              type="text"
+          {/* Branch */}
+          <div className={styles.field}>
+            <Label htmlFor="branch">Branch</Label>
+            <Input
+              id="branch"
               name="branch"
+              type="text"
+              placeholder="Computer Science"
               value={formData.branch}
               onChange={handleChange}
               required
             />
+          </div>
 
-            <label>Batch:</label>
+          {/* Batch */}
+          <div className={styles.field}>
+            <Label htmlFor="batch">Batch</Label>
             <select
+              id="batch"
               name="batch"
+              className={styles.select}
               value={formData.batch}
               onChange={handleChange}
               required
@@ -163,37 +201,42 @@ const EventDescription = () => {
               <option value="TE">TE</option>
               <option value="BE">BE</option>
             </select>
+          </div>
 
-            <label>Roll no.:</label>
-            <input
-              type="text"
+          {/* Roll Number */}
+          <div className={styles.field}>
+            <Label htmlFor="rollNumber">Roll Number</Label>
+            <Input
+              id="rollNumber"
               name="rollNumber"
+              type="text"
+              placeholder="1234"
               value={formData.rollNumber}
               onChange={handleChange}
               required
             />
+          </div>
 
-            {/* QR Code Section */}
-            {/* <div className="payment-qr">
-              <h3>Scan & Pay</h3>
-              <img src={qr} alt="Payment QR" />
-            </div> */}
+          {/* Submit */}
+          <button className={styles.primaryButton} type="submit">
+            {"Submit Registration →"}
+          </button>
 
-            {/* <label>Transaction ID:</label>
-            <input
-              type="text"
-              name="transactionId"
-              value={formData.transactionId}
-              onChange={handleChange}
-              required
-            /> */}
-            <button type="submit">Submit Registration</button>
-            <Link className="join-button" to="https://chat.whatsapp.com/CnY14iDcZhU3PCzFPUXEkE?mode=ems_wa_c" target="__blank">Join WhatsApp Group</Link>
-          </form>
-        ) : (
-          <h3 className="closed-msg">⚠️ Registration Closed</h3>
-        )}
-     
+          <div className={styles.divider} />
+
+          {/* WhatsApp Group Link */}
+          <a
+            href="https://chat.whatsapp.com/CnY14iDcZhU3PCzFPUXEkE?mode=ems_wa_c"
+            className={styles.joinButton}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join WhatsApp Group
+          </a>
+        </form>
+      ) : (
+        <h3 className="closed-msg">⚠️ Registration Closed</h3>
+      )}
     </div>
   );
 };

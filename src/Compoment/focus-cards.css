@@ -14,7 +14,7 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-}
+} 
 
 @media (min-width: 768px) {
   .fc-grid {
@@ -79,9 +79,9 @@
 
 /* gradient title text */
 .fc-title {
-  font-size: 1.25rem; /* ~ text-xl */
+  font-size: 3rem; /* ~ text-xl */
   font-weight: 800; /* ~ font-medium */
-  line-height: 1.1;
+  line-height: 1.5;
   margin: 2%;
   background: linear-gradient(to bottom, #fafafa, #e5e7eb);
   -webkit-background-clip: text;
@@ -91,20 +91,20 @@
 
 @media (min-width: 768px) {
   .fc-title {
-    font-size: 1.5rem; /* ~ md:text-2xl */
+    font-size: 2rem; /* ~ md:text-2xl */
   }
 }
 
 /* short description under the title */
 .fc-desc {
   margin: 2%;
-  font-size: 0.875rem; /* ~ text-sm */
+  font-size: 0.575rem; /* ~ text-sm */
   line-height: 1.5; /* ~ leading-6 */
   color: rgba(243, 244, 246, 0.9); /* near-white, readable on dark overlay */
 }
 
 @media (min-width: 768px) {
   .fc-desc {
-    font-size: 1rem; /* ~ md:text-base */
+    font-size: 0.8rem; /* ~ md:text-base */
   }
 }

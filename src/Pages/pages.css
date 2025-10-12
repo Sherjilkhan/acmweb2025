@@ -8,6 +8,7 @@
   max-width: 100%;
   min-height: 100vh;
   height: fit-content;
+  overflow-x: hidden;
 }
 .hero-section {
   width: 98%;
@@ -363,6 +364,7 @@
 }
 .domain-header {
   width: 100%;
+  margin-bottom: 5rem;
   height: fit-content;
   /* position: sticky;
   top: 0%; */
@@ -377,13 +379,13 @@
 }
 .domain-header h1 {
   width: 100%;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 900;
   /* margin-left: 5%; */
 }
 .domain-header p {
   width: 100%;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-weight: 300;
   /* margin-left: 5%;
   margin-top: 2%; */
