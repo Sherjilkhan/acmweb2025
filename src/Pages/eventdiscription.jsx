@@ -64,38 +64,41 @@ const EventDescription = () => {
       alert("Something went wrong!");
     }
   };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Auto slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === event.glimpse.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
   const today = new Date();
   const end = new Date(event.endDate);
   const isOngoingOrUpcoming = today <= end;
 
   return (
     <div className="event-description">
-      <div className="eventdescription-container">
-        <div className="eventdescription-head">
-          <img src={event.img} alt={event.title} />
-          <div className="event-head-text">
-            <h1>{event.title}</h1>
-            <h4>{event.type}</h4>
-            <h4>
-              {event.startDate} - {event.endDate}
-            </h4>
-          </div>
+     <div className="event-header">
+      <div className="fade-slider">
+      {event.glimpse.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`slide-${index}`}
+          className={`fade-image ${index === currentIndex ? "active" : ""}`}
+        />
+      ))}
+    </div>
+        <div className="event-header-text">
+          <h1>{event.title}</h1>
+          <p>{event.type}</p>
+          <p>{event.startDate}-{event.endDate}</p>
+          <p>{event.short_description}</p>
         </div>
-
-        <h2>About this Event</h2>
-        <p>{event.description}</p>
-
-        {event.glimpse.length > 0 && (
-          <>
-            <h2>Glimpse from the past events</h2>
-            <div className="glimpse-media-container">
-              <img className="mediadiv1" src={event.glimpse[0]} alt="glimpse" />
-              <img className="mediadiv2" src={event.glimpse[1]} alt="glimpse" />
-              <img className="mediadiv3" src={event.glimpse[2]} alt="glimpse" />
-            </div>
-          </>
-        )}
+     </div>
 
         {/* Registration form */}
         {isOngoingOrUpcoming ? (
@@ -190,7 +193,7 @@ const EventDescription = () => {
         ) : (
           <h3 className="closed-msg">⚠️ Registration Closed</h3>
         )}
-      </div>
+     
     </div>
   );
 };
