@@ -134,19 +134,31 @@ option:hover{
 
 .primaryButton {
   display: block;
-  width: 100%;
-  height: 40px;
+  width: 70%;
+  height: 6vh;
+  margin-left: 15%;
   border: none;
-  border-radius: 8px;
-  background: #2563eb; /* primary */
+  border-radius: 1rem;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.852); /* primary */
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.02s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding: 1%;
+  
 }
 
 .primaryButton:hover {
-  background: #1e40af; /* darker primary */
+  background: white;
+  color: black;
+  border: 0.1rem solid black; /* darker primary */
 }
 
 .primaryButton:active {
@@ -184,5 +196,5 @@ option:hover{
 
 .providerButton:hover {
   background: #ffffff;
-  border-color: #d1d5db; /* neutral-300 */
+  border-color: #202021; /* neutral-300 */
 }

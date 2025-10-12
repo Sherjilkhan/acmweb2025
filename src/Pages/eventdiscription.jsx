@@ -149,7 +149,6 @@ const EventDescription = () => {
           <div className={styles.field} id="namef">
             <Label htmlFor="name">Full Name</Label>
             <Input
-             
               id="name"
               name="name"
               type="text"
@@ -212,26 +211,23 @@ const EventDescription = () => {
             />
           </div>
 
-<div className={styles.field}>
-  <Label htmlFor="batch">Batch</Label>
-  <select
-    id="batch"
-    name="batch"
-    className={styles.select}
-    value={formData.batch}
-    onChange={handleChange}
-    required
-  >
-    <option value="">Select Batch</option>
-    <option value="FE">FE</option>
-    <option value="SE">SE</option>
-    <option value="TE">TE</option>
-    <option value="BE">BE</option>
-  </select>
-</div>
-
-
-
+          <div className={styles.field}>
+            <Label htmlFor="batch">Batch</Label>
+            <select
+              id="batch"
+              name="batch"
+              className={styles.select}
+              value={formData.batch}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select Batch</option>
+              <option value="FE">FE</option>
+              <option value="SE">SE</option>
+              <option value="TE">TE</option>
+              <option value="BE">BE</option>
+            </select>
+          </div>
 
           <div className={styles.field}>
             <Label htmlFor="rollNumber">Roll Number</Label>
