@@ -26,11 +26,11 @@ const Home = () => {
 
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 500 });
 
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 1500);
 
     return () => clearInterval(interval); // cleanup
   }, []);

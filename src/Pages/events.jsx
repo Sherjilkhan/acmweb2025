@@ -38,12 +38,9 @@ const Events = () => {
   }, [activeIndex]);
   return (
     <div className="eventpage-container">
-      <div className="event-curves1"></div>
-      <div className="event-curves2"></div>
+      
       <div className="event-hero">
-        <video autoPlay loop muted className="event-video">
-          <source src={evntvid} type="video/mp4" />
-        </video>
+        
         <div className="event-hero-text">
           <h4>Milestones That Matter</h4>
           <h1>Events That Defined Our Chapter’s Story</h1>
@@ -51,6 +48,11 @@ const Events = () => {
             Each event was more than a gathering , it was a step towards
             building a thriving tech community at RAIT.
           </h3>
+        </div>
+        <div className="event-hero-img">
+          <div className="event-hero-img1"></div>
+          <div className="event-hero-img2"></div>
+          <div className="event-hero-img3"></div>
         </div>
       </div>
       <div className="event-content">
