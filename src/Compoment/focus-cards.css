@@ -1,0 +1,110 @@
+/* add plain CSS styles for FocusCards; replaces Tailwind utility classes */
+
+/* grid container */
+.fc-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  gap: 1rem; /* ~ gap-10 */
+   /* ~ max-w-5xl */
+  
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .fc-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 2rem; /* ~ md:px-8 */
+    padding-right: 2rem;
+  }
+}
+
+/* card wrapper */
+.fc-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.8rem; /* ~ rounded-lg */
+  background: #f3f4f6; /* gray-100 fallback background */
+  height: 15rem; /* ~ h-60 */
+  width: 20rem;
+  transition: transform 300ms ease-out, filter 300ms ease-out, opacity 300ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .fc-card {
+    height: 24rem; /* ~ md:h-96 */
+  }
+}
+
+/* blurred state when another card is hovered */
+.fc-card-blurred {
+  filter: blur(2px);
+  transform: scale(0.98);
+}
+
+/* background image */
+.fc-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* overlay that shows on hover of a card */
+.fc-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 1rem; /* ~ py-8 px-4 */
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.fc-overlay.is-visible {
+  opacity: 1;
+}
+
+/* inner content spacing */
+.fc-overlay-content > * + * {
+  margin-top: 0.25rem; /* ~ space-y-1 */
+}
+
+/* gradient title text */
+.fc-title {
+  font-size: 1.25rem; /* ~ text-xl */
+  font-weight: 800; /* ~ font-medium */
+  line-height: 1.1;
+  margin: 2%;
+  background: linear-gradient(to bottom, #fafafa, #e5e7eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (min-width: 768px) {
+  .fc-title {
+    font-size: 1.5rem; /* ~ md:text-2xl */
+  }
+}
+
+/* short description under the title */
+.fc-desc {
+  margin: 2%;
+  font-size: 0.875rem; /* ~ text-sm */
+  line-height: 1.5; /* ~ leading-6 */
+  color: rgba(243, 244, 246, 0.9); /* near-white, readable on dark overlay */
+}
+
+@media (min-width: 768px) {
+  .fc-desc {
+    font-size: 1rem; /* ~ md:text-base */
+  }
+}

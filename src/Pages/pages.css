@@ -353,12 +353,12 @@
 
 .domain-wrapper {
   width: 100%;
-  min-height: 100vh;
   height: fit-content;
+  
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 40vh;
+  margin-bottom: 20vh;
   overflow-x: hidden;
 }
 .domain-header {

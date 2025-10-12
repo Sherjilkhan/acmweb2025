@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import "./pages.css";
 import Announcemnt from "../Compoment/announcement";
 import perksimg from "../assets/perksbg.png";
-import Carousel from "../Compoment/carousel";
+import { FocusCards } from "../Compoment/FocusCards";
 import { Link } from "react-router-dom";
 import statshero from "/assets/stats-hero.png";
 import flg1 from "/assets/Event-data/gold.png";
@@ -13,6 +13,7 @@ import flg3 from "/assets/Event-data/codesummit.jpg";
 
 import events from "../assets/EventData/eventdata"; //
 import evntvid from "../assets/Eventpage-hero.mp4";
+import { domains } from "../assets/domain";
 const images = [
   "public/assets/Event-data/hoc1.jpg",
   "public/assets/Event-data/vr1.jpg",
@@ -22,6 +23,7 @@ const images = [
 const Home = () => {
   const [index, setIndex] = useState(0);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -152,7 +154,7 @@ const Home = () => {
             individual the opportunity to grow.
           </p>
         </div>
-        <Carousel />
+         <FocusCards cards={domains} />
       </div>
       {/* ---------- EVENTS ---------- */}
       <div className="event-wrapper">
