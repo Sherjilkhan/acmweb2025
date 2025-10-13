@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import PaymentForm from "./PaymentForm";
 import "./styles.css";
 
-const RegistrationForm = (EventName) => {
+const RegistrationForm = ({ EventName }) => {
   const [formData, setFormData] = useState({
-    eventName:EventName,
+    eventName: EventName,
+     name: "",
     email: "",
-    firstName: "",
-    lastName: "",
-    whatsapp: "",
+    phone: "",
+    cllg: "",
     branch: "",
-    year: "",
-    division: "",
-    roll: "",
-    acmMember: "",
+    batch: "",
+    rollNumber: "",
+    acmMember:"",
   });
 
   const [showPayment, setShowPayment] = useState(false);
@@ -37,30 +36,31 @@ const RegistrationForm = (EventName) => {
       {!showPayment ? (
         <form onSubmit={handleContinue} className="glass-form">
           <h2>Fill in your details to secure your spot</h2>
+
           <label>Email *</label>
           <input name="email" type="email" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
-              <label>First Name *</label>
-              <input name="firstName" onChange={handleChange} required />
+              <label>Full Name *</label>
+              <input name="name" onChange={handleChange} required />
             </div>
             <div>
-              <label>Last Name *</label>
-              <input name="lastName" onChange={handleChange} required />
+              <label>College Name *</label>
+              <input name="cllg" onChange={handleChange} required />
             </div>
           </div>
 
-          <label>WhatsApp Number *</label>
-          <input name="whatsapp" onChange={handleChange} required />
+          <label>Phone Number *</label>
+          <input name="phone" onChange={handleChange} required />
 
-          <label>Branch *</label>
-          <input name="branch" onChange={handleChange}  required />
+          <label>Branch *</label>``
+          <input name="branch" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
-              <label>Year *</label>
-              <select name="year" onChange={handleChange} required>
+              <label>Batch *</label>
+              <select name="batch" onChange={handleChange} required>
                 <option value="">Select</option>
                 <option>FE</option>
                 <option>SE</option>
@@ -75,15 +75,29 @@ const RegistrationForm = (EventName) => {
           </div>
 
           <label>Roll Number *</label>
-          <input name="roll" onChange={handleChange} required />
+          <input name="rollNumber" onChange={handleChange} required />
 
           <label>ACM Member? *</label>
           <div className="radio-group">
             <label>
-              <input type="radio" name="acmMember" value="Yes" onChange={handleChange} required /> Yes
+              <input
+                type="radio"
+                name="acmMember"
+                value="Yes"
+                onChange={handleChange}
+                required
+              />{" "}
+              Yes
             </label>
             <label>
-              <input type="radio" name="acmMember" value="No" onChange={handleChange} required /> No
+              <input
+                type="radio"
+                name="acmMember"
+                value="No"
+                onChange={handleChange}
+                required
+              />{" "}
+              No
             </label>
           </div>
 
@@ -99,3 +113,4 @@ const RegistrationForm = (EventName) => {
 };
 
 export default RegistrationForm;
+

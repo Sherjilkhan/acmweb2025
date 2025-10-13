@@ -9,7 +9,7 @@ const Blogsdescription = () => {
   return (
     <div
       className="blgdes-container"
-      style={{ backgroundImage: `url(${blog.thumbnail})` }}
+      
     >
       <div className="blg-head">
         <h1>{blog.title}</h1>

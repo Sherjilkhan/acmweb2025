@@ -89,65 +89,96 @@ const EventDescription = () => {
 
   return (
     <div className="event-description">
-      {/* ---------- PRELOADER ---------- */}
-      {loading && (
-        <div className="preloader-overlay">
-          <div className="loader"></div>
+      <div className="event-description-content">
+        <div
+          className="event-descrption-div1"
+          style={{ backgroundImage: `url(${event.img})` }}
+        >
+          <h2>{event.type}</h2>
         </div>
-      )}
-
-      {/* ---------- SUCCESS POPUP ---------- */}
-      {showPopup && (
-        <div className="popup-overlay">
-          <div className="popup-box">
-            <h2>✅ Registration Successful!</h2>
-            <p>
-              Thank you for registering for <strong>{event.title}</strong>.
-              <br />
-              Please join our WhatsApp group for further updates.
-            </p>
-            <a
-              href="https://chat.whatsapp.com/CnY14iDcZhU3PCzFPUXEkE?mode=ems_wa_c"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="join-button"
-              onClick={() => setShowPopup(false)}
-            >
-              Join WhatsApp Group
-            </a>
-          </div>
+        <div className="event-descrption-div2">
+          <div
+            className="event-glimpse-div1"
+            style={{ backgroundImage: `url(${event.glimpse[0]})` }}
+          ></div>
+          <div
+            className="event-glimpse-div2"
+            style={{ backgroundImage: `url(${event.glimpse[1]})` }}
+          ></div>
+          <div
+            className="event-glimpse-div3"
+            style={{ backgroundImage: `url(${event.glimpse[2]})` }}
+          ></div>
         </div>
-      )}
-
-      {/* ---------- HEADER ---------- */}
-      <div className="eventdes-header">
-        <div className="fade-slider">
-          {event.glimpse.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`slide-${index}`}
-              className={`fade-image ${index === currentIndex ? "active" : ""}`}
-            />
-          ))}
-        </div>
-
-        <div className="eventdes-header-text">
+        <div className="event-descrption-div3">
           <h1>{event.title}</h1>
-          <p>{event.type}</p>
+
           <p>
-            {event.startDate} - {event.endDate}
+            <h3>About this event</h3>
+            {event.short_description}
           </p>
-          <h3>{event.short_description}</h3>
+        </div>
+        <div className="event-descrption-div4">
+          {" "}
+          {isOngoingOrUpcoming ? (
+            <RegistrationForm EventName={event.title} />
+          ) : (
+            <h3 className="closed-msg">
+              ⚠️ Registration for this event has been ended
+            </h3>
+          )}
+        </div>
+        <div className="event-descrption-div5">
+          <h1>Event details</h1>
+          <h3>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="white"
+                class="bi bi-calendar-week"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+              </svg>
+            </button>
+            Dates: {event.startDate} - {event.endDate}
+          </h3>
+
+          <h3>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="white"
+                class="bi bi-geo-alt-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+              </svg>
+            </button>
+            Venue: {event.venue}
+          </h3>
+          <h3>
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="white"
+                class="bi bi-hourglass-bottom"
+                viewBox="0 0 16 16"
+              >
+                <path d="M2 1.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1-.5-.5m2.5.5v1a3.5 3.5 0 0 0 1.989 3.158c.533.256 1.011.791 1.011 1.491v.702s.18.149.5.149.5-.15.5-.15v-.7c0-.701.478-1.236 1.011-1.492A3.5 3.5 0 0 0 11.5 3V2z" />
+              </svg>
+            </button>
+              Time: {event.time}
+          </h3>
         </div>
       </div>
-
-      {/* ---------- FORM ---------- */}
-      {isOngoingOrUpcoming ? (
-        <RegistrationForm EventName={event.title} />
-      ) : (
-        <h3 className="closed-msg">⚠️ Registration Closed</h3>
-      )}
     </div>
   );
 };

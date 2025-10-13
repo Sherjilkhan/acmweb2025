@@ -38,9 +38,7 @@ const Events = () => {
   }, [activeIndex]);
   return (
     <div className="eventpage-container">
-      
       <div className="event-hero">
-        
         <div className="event-hero-text">
           <h4>Milestones That Matter</h4>
           <h1>Events That Defined Our Chapter’s Story</h1>
@@ -72,22 +70,39 @@ const Events = () => {
               </div>
             ))}
           </div>
-        </div> 
-
-        {filteredEvents.map((event) => (
-          <div key={event.id} className="event-card">
-            {/* <div className="cardsbg" ></div> */}
-            <div className="event-card-content">
-              <div className="event-poster" style={{backgroundImage:`url(${event.img})`}}>
-                <div className="event-type">{event.type}</div>
-                <div className="event-date">{event.startDate}</div>
-              </div>
-              <div className="event-title">{event.title}</div>
-              <div className="event-des">{event.description.slice(0, 100)}....</div>
-              <Link to={`/events/${event.id}`} className="Link">Register</Link>
-            </div>
-          </div>
-        ))}
+        </div>
+  {filteredEvents.length === 0 ? (
+          <div className="no-events">There are no events to display.</div>
+        ) : (
+          filteredEvents.map((event) => (
+              <Link
+                to={`/events/${event.id}`}
+                key={event.id}
+                className="event-card"
+              >
+                <div
+                  className="event-card-content"
+                  style={{
+                    backgroundImage: `url(${
+                      event.glimpse && event.glimpse.length > 0
+                        ? event.glimpse[0]
+                        : event.img
+                    })`,
+                  }}
+                >
+                  <div className="event-info">
+                    <div className="event-type">{event.type}</div>
+                    <div className="event-date">{event.startDate}</div>
+                  </div>
+                  <div className="event-title">{event.title}</div>
+                  <div className="event-des">
+                    {event.description.slice(0, 100)}....
+                  </div>
+                </div>
+              </Link>
+            ))
+          
+        )}
       </div>
     </div>
   );

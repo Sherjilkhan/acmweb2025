@@ -123,8 +123,31 @@ import _222344 from "/assets/Members/2022-23/22-23 NC_s/amogh.webp";
 import _222345 from "/assets/Members/2022-23/22-23 NC_s/shwetal.webp";
 import _222346 from "/assets/Members/2022-23/22-23 NC_s/utkarsh.webp";
 import _222347 from "/assets/Members/2022-23/22-23 NC_s/pooja.webp";
-
+import faculty1 from "../pallavimam.jpeg"
+import faculty2 from "../HODIT.png"
 const members = [
+   {
+    Name: "Dr. Pallavi Chavan",
+    "Position ": " Faculty Sponsor",
+    "Instagram ID": "",
+    "Linkedin ID": "",
+    "Github ID": "liban101",
+    Year: "2025-2026",
+    Chapter: "SC",
+    Type: "faculty",
+    profilepic: faculty1,
+  },
+   {
+    Name: "Dr. Sangeeta Chaudharin",
+    "Position ": "Faculty Coordinator",
+    "Instagram ID": "",
+    "Linkedin ID": "",
+    "Github ID": "liban101",
+    Year: "2025-2026",
+    Chapter: "SC",
+    Type: "faculty",
+    profilepic: faculty2,
+  },
   {
     Name: "Mohammed Liban",
     "Position ": "ACM Chair",

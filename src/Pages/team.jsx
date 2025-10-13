@@ -8,7 +8,7 @@ const Team = () => {
   const highlightRef = useRef(null);
   const containerRef = useRef(null);
 
-  const options = [ "2024-2025", "2023-2024", "2022-2023"];
+  const options = ["2024-2025", "2023-2024", "2022-2023"];
 
   const moveHighlight = useCallback(() => {
     const currentOption = optionRefs.current[activeIndex];
@@ -46,6 +46,9 @@ const Team = () => {
   );
 
   // Core vs Non-core
+  const facultyMembers = members.filter(
+    (member) => (member.Type || "").toLowerCase() === "faculty"
+  );
   const coreMember = filteredTeam.filter(
     (member) => (member.Type || "").toLowerCase() === "c"
   );
@@ -63,7 +66,33 @@ const Team = () => {
   const wCores = coreMember.filter(
     (member) => (member.Chapter || "").toLowerCase() === "w"
   );
+  const FacultyCard = ({ member }) => (
+    <div className="faculty-card">
+      <img src={member.profilepic} alt="" />
+      <div className="member-card-content">
+        <h3>{member.Name}</h3>
+        <p>{member["Position"] || member["Position "] || "Member"}</p>
 
+        <p>{member.Year || "N/A"}</p>
+        {member.Year === "2025-2026" && (
+          <div className="socialhandleslinks">
+            <Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-linkedin"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+              </svg>
+            </Link>
+          </div>
+        )}
+      </div>
+    </div>
+  );
   const MemberCard = ({ member }) => (
     <div className="member-card">
       <img src={member.profilepic} alt="" />
@@ -170,7 +199,37 @@ const Team = () => {
 
   return (
     <div className="Team-container">
-      {/* Toggle buttons */}
+      <div className="team-header">
+        <div className="team-head">The Team That Defines RAIT ACM</div>
+        <div className="team-eyebrowtext">Together We Build the Future</div>
+        <div className="team-sub-head">
+          The RAIT ACM team is a diverse group of passionate students united by
+          innovation and collaboration. From coding and creativity to management
+          and media, each member contributes their unique skills to drive
+          excellence, inspire growth, and uphold the vision of advancing
+          technology within the RAIT community.
+        </div>
+      </div>
+
+      {/* Faculty Members */}
+      {facultyMembers.length > 0 && (
+        <>
+          <h2>Our Faculty Team</h2>
+          <h4>
+            Guiding our journey with wisdom and experience, our faculty mentors
+            provide the foundation upon which RAIT ACM thrives.{" "}
+          </h4>
+          <div className="card-grid">
+            {facultyMembers.map((member) => (
+              <FacultyCard
+                key={member.Name + member["Position "]}
+                member={member}
+              />
+            ))}
+          </div>
+        </>
+      )}
+       {/* Toggle buttons */}
       <div className="toggle-wrapper">
         <div className="toggle-container" ref={containerRef}>
           <div className="highlight" ref={highlightRef} />
@@ -188,7 +247,6 @@ const Team = () => {
           ))}
         </div>
       </div>
-
       {/* SC Cores */}
       {scCores.length > 0 && (
         <>
@@ -259,7 +317,6 @@ const Team = () => {
           </div>
         </>
       )}
-      
     </div>
   );
 };
