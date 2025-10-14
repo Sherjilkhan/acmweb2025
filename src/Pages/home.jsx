@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./pages.css";
+import "./responsive.css";
 import Announcemnt from "../Compoment/announcement";
 import perksimg from "../assets/perksbg.png";
 import { FocusCards } from "../Compoment/FocusCards";
@@ -303,7 +304,7 @@ const Home = () => {
           </h2>
         </div>
         <div className="joinus-grid">
-          <div class="joinus-div1">
+          <div className="joinus-div1">
             <h2>Our Impact on Your Growth</h2>
 
             <ul>
@@ -317,24 +318,24 @@ const Home = () => {
               </li>
             </ul>
           </div>
-          <div class="joinus-div2">
+          <div className="joinus-div2">
             <h2>95%+ Member Engagement</h2>
             <p>
               You can rely on us to keep you connected with like-minded
               individuals shaping tomorrow.
             </p>
           </div>
-          <div class="joinus-div3">
+          <div className="joinus-div3">
             <h2>500+ Lives Transformed</h2>
             <p>
               Join countless satisfied members who've realized their potential
               through our consistent, expert guidance and collaborative network.
             </p>
           </div>
-          <div class="joinus-div4">
+          <div className="joinus-div4">
             <p></p>
           </div>
-          <div class="joinus-div5">
+          <div className="joinus-div5">
             <p></p>
           </div>
         </div>

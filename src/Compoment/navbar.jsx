@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./component.css";
-import acmlogo from "/acmlogo.png";
+import "./responsive.css";
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,12 +14,7 @@ function Navbar() {
           RAIT ACM
         </h1> */}
         {/* Hamburger icon for mobile (only shows <426px via CSS) */}
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
+        
         {/* Navbar links */}
         <ul className={`navbar ${isOpen ? "open" : ""}`}>
           <li>

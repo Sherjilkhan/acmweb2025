@@ -1,0 +1,48 @@
+@media (max-width: 1024px) {
+  nav {
+  padding-left: 1%;
+  padding-right: 1%;
+  min-width: 1024px;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+.navbar {
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-items: center;
+  gap: 0rem;
+}
+.navbar li{
+  font-size: 0.8rem;
+}
+.dropbtn{
+    font-size: 0.8rem;
+}
+.nav-buttons{
+    width: 25%;
+}
+.nav-buttons button{
+    font-size: 0.8rem;
+}
+.announcement {
+    width: 30vw;
+}
+}
+@media (max-width:426px) {
+  nav{
+    display: none;
+  }
+  .announcement{
+    width: 80vw;
+  }
+  .announcement-text{
+    font-size: 0.7rem;
+  }
+}
