@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import _25261 from "/assets/Members/2025-26/25-26 NC_s/Sherjil.png";
 
+=======
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 import _24251 from "/assets/Members/2024-25/24-25 sc/arnav-a.jpeg";
 import _24252 from "/assets/Members/2024-25/24-25 sc/arnav-p.jpeg";
 import _24253 from "/assets/Members/2024-25/24-25 sc/poulami.jpeg";
@@ -377,7 +380,11 @@ const members = [
     Year: "2025-2026",
     Chapter: null,
     Type: "nc",
+<<<<<<< HEAD
     profilepic: _25261,
+=======
+    profilepic: "",
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   },
   {
     Name: "Saish Pable",
@@ -546,7 +553,21 @@ const members = [
     Type: "nc",
     profilepic: "",
   },
+<<<<<<< HEAD
   
+=======
+  {
+    Name: "Sanjana Singh",
+    "Position ": "Publicity Chief",
+    "Instagram ID": "_.sanjana.ssingh",
+    "Linkedin ID": "https://sanjana-singh-96a7a528a/",
+    "Github ID": "sanjanaaaa-17",
+    Year: "2025-2026",
+    Chapter: null,
+    Type: "nc",
+    profilepic: "",
+  },
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   {
     Name: "Parthvi Shirke",
     "Position ": "Publicity Chief",
@@ -558,7 +579,22 @@ const members = [
     Type: "nc",
     profilepic: "",
   },
+<<<<<<< HEAD
   
+=======
+  {
+    Name: "Arjun Asthana",
+    "Position ": "Publicity Chief",
+    "Instagram ID": "_arjun_asthana_01",
+    "Linkedin ID":
+      "https://arjun-asthana-244510316?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "Github ID": "arjunasthana02-design",
+    Year: "2025-2026",
+    Chapter: null,
+    Type: "nc",
+    profilepic: "",
+  },
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   {
     Name: "Rayan Shaikh",
     "Position ": "Jr. Sponsorship Chief",

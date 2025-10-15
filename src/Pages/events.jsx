@@ -1,4 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+<<<<<<< HEAD
+=======
+import evntvid from "../assets/Eventpage-hero.mp4";
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 import events from "../assets/EventData/eventdata";
 import { Link } from "react-router-dom";
 const Events = () => {
@@ -40,7 +44,11 @@ const Events = () => {
       <div className="event-hero">
         <div className="event-hero-text">
           <h4>Milestones That Matter</h4>
+<<<<<<< HEAD
           <h1>Events That Defined Our <i style={{fontWeight:"200"}}>Chapter’s Story</i></h1>
+=======
+          <h1>Events That Defined Our Chapter’s Story</h1>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <h3>
             Each event was more than a gathering , it was a step towards
             building a thriving tech community at RAIT.

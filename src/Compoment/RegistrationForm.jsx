@@ -37,29 +37,52 @@ const RegistrationForm = ({ EventName }) => {
         <form onSubmit={handleContinue} className="glass-form">
           <h2>Fill in your details to secure your spot</h2>
 
+<<<<<<< HEAD
           <label>Email </label>
+=======
+          <label>Email *</label>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <input name="email" type="email" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
+<<<<<<< HEAD
               <label>Full Name </label>
               <input name="name" onChange={handleChange} required />
             </div>
             <div>
               <label>College Name </label>
+=======
+              <label>Full Name *</label>
+              <input name="name" onChange={handleChange} required />
+            </div>
+            <div>
+              <label>College Name *</label>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
               <input name="cllg" onChange={handleChange} required />
             </div>
           </div>
 
+<<<<<<< HEAD
           <label>Phone Number </label>
           <input name="phone" onChange={handleChange} required />
 
           <label>Branch </label>
+=======
+          <label>Phone Number *</label>
+          <input name="phone" onChange={handleChange} required />
+
+          <label>Branch *</label>``
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <input name="branch" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
+<<<<<<< HEAD
               <label>Batch </label>
+=======
+              <label>Batch *</label>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
               <select name="batch" onChange={handleChange} required>
                 <option value="">Select</option>
                 <option>FE</option>
@@ -69,15 +92,26 @@ const RegistrationForm = ({ EventName }) => {
               </select>
             </div>
             <div>
+<<<<<<< HEAD
               <label>Division </label>
+=======
+              <label>Division *</label>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
               <input name="division" onChange={handleChange} required />
             </div>
           </div>
 
+<<<<<<< HEAD
           <label>Roll Number </label>
           <input name="rollNumber" onChange={handleChange} required />
 
           <label>ACM Member? </label>
+=======
+          <label>Roll Number *</label>
+          <input name="rollNumber" onChange={handleChange} required />
+
+          <label>ACM Member? *</label>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <div className="radio-group">
             <label>
               <input
@@ -86,8 +120,13 @@ const RegistrationForm = ({ EventName }) => {
                 value="Yes"
                 onChange={handleChange}
                 required
+<<<<<<< HEAD
               />Yes
               
+=======
+              />{" "}
+              Yes
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             </label>
             <label>
               <input
@@ -96,7 +135,11 @@ const RegistrationForm = ({ EventName }) => {
                 value="No"
                 onChange={handleChange}
                 required
+<<<<<<< HEAD
               />
+=======
+              />{" "}
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
               No
             </label>
           </div>

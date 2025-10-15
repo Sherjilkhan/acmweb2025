@@ -2,7 +2,11 @@
 .card {
   width: 100%;
   margin: 0 auto;
+<<<<<<< HEAD
   background: #051b3dc9;
+=======
+  background: #ffffff;
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   border: 1px solid #e5e7eb; /* neutral-200 */
   border-radius: 12px;
   padding: 24px;

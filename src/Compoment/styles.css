@@ -1,6 +1,7 @@
 
 
 .form-container {
+<<<<<<< HEAD
   color: white;
   border-radius: 16px;
  background-image: radial-gradient(circle , #7da0ca  , #052659,#021024);  
@@ -10,6 +11,17 @@
 
 .glass-form {
   background: #052759bf;
+=======
+  color: black;
+  border-radius: 16px;
+ background-image: radial-gradient(circle , rgba(243, 239, 239, 0.556) , rgba(125, 124, 124, 0.693) , rgba(194, 189, 189, 0.687));  
+ width:100%;
+  background-color: rgb(121, 117, 117);
+}
+
+.glass-form {
+  background: rgba(238, 235, 235, 0.591);
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
@@ -17,7 +29,12 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
+<<<<<<< HEAD
 .glass-form option{
+=======
+.glass-form input,
+.glass-form select {
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   width: 100%;
   padding: 10px;
   margin: 6px 0 15px 0;
@@ -27,6 +44,7 @@
   background: rgba(255, 255, 255, 0.1);
   color: black;
 }
+<<<<<<< HEAD
 .glass-form input,
 .glass-form select
  {
@@ -39,6 +57,8 @@
   background: rgba(255, 255, 255, 0.1);
   color: white;
 }
+=======
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 .glass-form img{
   width: 10rem;
   height: 10rem;
@@ -47,7 +67,10 @@
   border-radius: 16px;
   margin: 1rem;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 .glass-form label {
   font-size: 14px;
   font-weight: 500;
@@ -61,11 +84,19 @@
 .radio-group {
   display: flex;
   gap: 20px;
+<<<<<<< HEAD
   margin-bottom: 1rem;
 }
 
 .btn-primary {
   background: #021024;
+=======
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background: black;
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   border: none;
   color: white;
   width: 100%;

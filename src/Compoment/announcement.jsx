@@ -4,7 +4,11 @@ import "./component.css";
 import { Link } from "react-router-dom";
 
 const Announcement = () => {
+<<<<<<< HEAD
  const [announcements, setAnnouncements] = useState([]);
+=======
+  const [announcements, setAnnouncements] = useState([]);
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 
   useEffect(() => {
     const today = new Date();
@@ -18,7 +22,11 @@ const Announcement = () => {
     // Sort by nearest date first
     upcoming.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
+<<<<<<< HEAD
     setAnnouncements(upcoming.slice(0,2));
+=======
+    setAnnouncements(upcoming.slice(0,1));
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   }, []);
 
   const handleClose = (id) => {

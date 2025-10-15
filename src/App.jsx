@@ -11,6 +11,11 @@ import Team from "./Pages/team.jsx";
 import Gallery from "./Pages/gallery.jsx";
 import Blogs from "./Pages/blogs.jsx";
 import Blogsdescription from "./Pages/blogsdescription.jsx";
+<<<<<<< HEAD
+=======
+import { ParallaxProvider } from "react-scroll-parallax";
+// import Homepast from "./Pages/homepast.jsx";
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 
 function App() {
   // const [loading, setLoading] = useState(true);
@@ -29,6 +34,10 @@ function App() {
   // }
 
   return (
+<<<<<<< HEAD
+=======
+    <ParallaxProvider>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
     <Router basename="/acmwebsite2025">
       <Navbar />
 
@@ -43,6 +52,10 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+<<<<<<< HEAD
+=======
+    </ParallaxProvider>
+>>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   );
 }
 
