@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./pages.css";
-<<<<<<< HEAD
 import hero from "/assets/hero.jpg";
 import herort from "/assets/hero-rt.png";
 import dm1 from "../assets/domain1.jpg";
@@ -13,30 +12,16 @@ import dm5 from "../assets/domain5.png";
 import dm6 from "../assets/domain6.png";
 import dm7 from "../assets/domain7.png";
 import dm8 from "../assets/domain8.png";
-=======
-import "./responsive.css";
-import Announcemnt from "../Compoment/announcement";
-import perksimg from "../assets/perksbg.png";
-import { FocusCards } from "../Compoment/FocusCards";
-import { Link } from "react-router-dom";
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 import statshero from "/assets/stats-hero.png";
 import flg1 from "/assets/Event-data/gold.png";
 import flg2 from "/assets/Event-data/kleos.png";
 import flg3 from "/assets/Event-data/codesummit.jpg";
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import evntvid from "../assets/Eventpage-hero.mp4";
 
 import events from "../assets/EventData/eventdata"; 
 import Announcemnt from "../Compoment/announcement";
 import Counter from "../Compoment/counter";
-=======
-
-import events from "../assets/EventData/eventdata"; //
-import evntvid from "../assets/Eventpage-hero.mp4";
-import { domains } from "../assets/domain";
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 const images = [
   "public/assets/Event-data/hoc1.jpg",
   "public/assets/Event-data/vr1.jpg",
@@ -47,26 +32,14 @@ const Home = () => {
   const [index, setIndex] = useState(0);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
 
-<<<<<<< HEAD
   useEffect(() => {
     AOS.init({ duration: 500 });
      const interval = setInterval(() => {
-=======
-
-  useEffect(() => {
-    AOS.init({ duration: 500 });
-
-    const interval = setInterval(() => {
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       setIndex((prev) => (prev + 1) % images.length);
     }, 1500);
 
     return () => clearInterval(interval); // cleanup
   }, []);
-<<<<<<< HEAD
-=======
-
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
   useEffect(() => {
     const today = new Date();
 
@@ -78,7 +51,6 @@ const Home = () => {
     // Take top 3
     setUpcomingEvents(upcoming.slice(0, 3));
   }, []);
-<<<<<<< HEAD
   return (
     <div className="home">
       <Announcemnt />
@@ -91,14 +63,6 @@ const Home = () => {
         </div>
         <div className="hero-text">
            <div className="hero-content">
-=======
-
-  return (
-    <div className="home">
-      {/* ---------- HERO ---------- */}
-      <div className="hero-section">
-        <div className="hero-content">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <h1>
             RAIT ACM <i>Student Chapter</i>
           </h1>
@@ -107,16 +71,8 @@ const Home = () => {
             professional environment
           </p>
         </div>
-<<<<<<< HEAD
           
            <div className="hero-card">
-=======
-
-        <div className="hero-card">
-          <Announcemnt />
-
-          <div className="card">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             {/* Slideshow */}
             <div className="slideshow">
               {images.map((src, i) => (
@@ -141,7 +97,6 @@ const Home = () => {
                 <span>Join us</span>
                 <button>→</button>
               </div>
-<<<<<<< HEAD
             
           </div>
           </div>
@@ -159,13 +114,6 @@ const Home = () => {
       </div>
 
       {/* Short overview */}
-=======
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* ---------- PERKS ---------- */}
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       <div className="perks-section">
         <h1 data-aos="zoom-in-up">Discover. Connect. Innovate.</h1>
         <h3 data-aos="fade-up">
@@ -174,11 +122,7 @@ const Home = () => {
         </h3>
 
         <div className="perks-content">
-<<<<<<< HEAD
           <div className="perksdiv1" data-aos1="fade-right">
-=======
-          <div className="perksdiv1" data-aos="fade-right">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             <h2>Get to Know RAIT ACM</h2>
             <p>
               Association for Computing Machinery (ACM) is the world's largest
@@ -189,44 +133,28 @@ const Home = () => {
               of students in RAIT.
             </p>
           </div>
-<<<<<<< HEAD
           <div className="perksdiv2" data-aos1="zoom-in-up">
-=======
-          <div className="perksdiv2" data-aos="zoom-in-up">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             <h2>Knowledge and Experience</h2>
             <p>
               Get hands-on experience and knowledge of what the latest
               technology has to offer.
             </p>
           </div>
-<<<<<<< HEAD
           <div className="perksdiv3" data-aos="fade-up">
-=======
-          <div className="perksdiv3" data-aos="fade-left">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             <h2>Free Workshops</h2>
             <p>
               Students with an ACM international membership get to attend all
               RAIT ACM workshops/events for free.
             </p>
           </div>
-<<<<<<< HEAD
           <div className="perksdiv4" data-aos="fade-left">
-=======
-          <div className="perksdiv4" data-aos="fade-up">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             <h2>Perks of Joining RAIT ACM</h2>
             <p>
               Join RAIT-ACM today and become a part of an international
               community that strives in fostering technology.
             </p>
           </div>
-<<<<<<< HEAD
           <div className="perksdiv5" data-aos="fade-up">
-=======
-          <div className="perksdiv5" data-aos="fade-left">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
             <h2>Diverse Skill Development</h2>
             <p>
               Explore your potential in domains like Management, Creative,
@@ -235,7 +163,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       {/* Domain Section  */}
       <div className="domain-container">
         <div className="domain-heading">
@@ -364,22 +291,6 @@ const Home = () => {
         </div>
       </div>
       {/* Event Section */}
-=======
-      {/* ---------- DOMAINS ---------- */}
-      <div className="domain-wrapper">
-        <div className="domain-header">
-          <h1>
-            Core <i>Domains</i> of RAIT ACM
-          </h1>
-          <p>
-            In all fields of technology, we have domains that offer every
-            individual the opportunity to grow.
-          </p>
-        </div>
-         <FocusCards cards={domains} />
-      </div>
-      {/* ---------- EVENTS ---------- */}
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       <div className="event-wrapper">
         <div className="event-header">
           <h1 data-aos="zoom-in">Events Throughout the Tenure</h1>
@@ -414,13 +325,7 @@ const Home = () => {
           <div className="event-div2 eventcard" data-aos="fade-right">
             <div>Hands-On Innovation</div>
           </div>
-<<<<<<< HEAD
           
-=======
-          <div className="event-div3 eventcard" data-aos="fade-up">
-            <p>Milestones That Define Our Chapter</p>
-          </div>
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
           <div className="event-div4 eventcard" data-aos="fade-left">
             <div>Voices That Inspired Us</div>
           </div>
@@ -444,7 +349,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       {/* Stats Section */}
       <div className="stats-container">
         <div className="stats-wrapper">
@@ -484,9 +388,6 @@ const Home = () => {
         </div>
       </div>
       {/* FlagshipEvent-section */}
-=======
-      {/* ---------- FLG_EVENTS ---------- */}
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       <div className="Flagshipevent-container">
         <div className="flg-head">
           <div className="flg-head1" data-aos="fade-right">
@@ -524,50 +425,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       {/* JoinUs section */}
        <div className="joinus-wrapper">
-=======
-      {/* ---------- STATS ---------- */}
-      <div className="stats-container">
-        <div className="stats-wrapper">
-          <div className="curves">
-            <img src={statshero} alt="Stats Hero" />
-          </div>
-
-          <div className="stats-div2">
-            <div className="stats-head" data-aos="zoom-in-up">
-              Trusted by <i>students</i>.
-            </div>
-            <div className="stats-subhead" data-aos="zoom-in-up">
-              This student chapter has been active since 2019 and has conducted
-              many events/workshops till now.
-            </div>
-            <div className="stats-data">
-              <div>
-                <h1 data-aos="zoom-in">19000+</h1>
-                <h2>Total Reach</h2>
-              </div>
-              <div>
-                <h1 data-aos="zoom-in">1150+</h1>
-                <h2>Active Members</h2>
-              </div>
-              <div>
-                <h1 data-aos="zoom-in">135+</h1>
-                <h2>Events Conducted</h2>
-              </div>
-              <div>
-                <h1 data-aos="zoom-in">60+</h1>
-                <h2>Months of Experience</h2>
-              </div>
-            </div>
-          </div>
-          <div className="stats-div3"></div>
-        </div>
-      </div>
-      {/* ---------- JOINUS ---------- */}
-      <div className="joinus-wrapper">
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
         <div className="joinus-header">
           <h3>The Difference We Make</h3>
           <h1>Empower Your Future. Join Our Community.</h1>
@@ -613,11 +472,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       {/* FAQs section */}
-=======
-      {/* ---------- FAQs ---------- */}
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       <div className="faqs-container">
         <h2 data-aos="fade-right">OUR FAQ's</h2>
         <h1 data-aos="fade-right">Frequently Asked Questions</h1>
@@ -643,13 +498,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       {/* Testimonial section */}
 
       {/* Contact Us section */}
-=======
-      {/* ---------- CONTAC-Us ---------- */}
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
       <div className="contact-container">
         <div className="contact-box">
           {/* Left Side - Form */}
