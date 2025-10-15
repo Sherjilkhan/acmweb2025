@@ -1,0 +1,200 @@
+/* plain CSS for signup form; palette uses primary blue and neutrals */
+.card {
+  width: 100%;
+  margin: 0 auto;
+  background: #051b3dc9;
+  border: 1px solid #e5e7eb; /* neutral-200 */
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.04);
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+  margin-bottom:2rem ;
+  font-weight: 800;
+  color: #111827; /* neutral-900 */
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #4b5563; /* neutral-700 */
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.form {
+  margin-top: 24px;
+  width: 50%;
+  margin-left: 25%;
+}
+.select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1.5px solid #000;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Remove blue border glow on focus */
+.select:focus {
+  border-color: rgba(0, 0, 0, 0.729);
+  box-shadow: none;
+  outline: none;
+}
+
+/* Options inside dropdown */
+.select option {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+/* Override system highlight color */
+.select::-ms-expand {
+  display: none;
+}
+
+/* Attempt to neutralize blue hover highlight on most browsers */
+select:focus option:checked,
+select:active option:checked {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Chrome & Firefox custom hover simulation */
+select option:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* For dark mode users */
+@media (prefers-color-scheme: dark) {
+  .select {
+    background-color: white;
+    color: black;
+    border-color: black;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  }
+  .select option {
+    background-color: white !important;
+    color: black !important;
+  }
+  select option:hover {
+    background-color: black !important;
+    color: white !important;
+  }
+}
+
+
+option{
+  background: white;
+  color: black;
+  border-radius: 1rem;
+  border: none;
+}
+option:hover{
+  background: black;
+  color: white;
+  
+} 
+#namef , #emailf {
+  width: 40%;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+  }
+}
+
+.field {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.primaryButton {
+  display: block;
+  width: 70%;
+  height: 6vh;
+  margin-left: 15%;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.852); /* primary */
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.02s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding: 1%;
+  
+}
+
+.primaryButton:hover {
+  background: white;
+  color: black;
+  border: 0.1rem solid black; /* darker primary */
+}
+
+.primaryButton:active {
+  transform: translateY(1px);
+}
+
+.divider {
+  margin: 24px 0;
+  height: 1px;
+  width: 100%;
+  background: #e5e7eb; /* neutral-200 */
+}
+
+.providers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.providerButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #e5e7eb; /* neutral-200 */
+  border-radius: 8px;
+  background: #f9fafb; /* neutral-50 */
+  color: #111827; /* neutral-900 */
+  padding: 0 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.providerButton:hover {
+  background: #ffffff;
+  border-color: #202021; /* neutral-300 */
+}

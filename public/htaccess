@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /acmwebsite2025/
+
+    # Don’t rewrite static assets
+    RewriteCond %{REQUEST_URI} !\.(css|js|json|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|eot|mp4|webm|ogg|mp3|wav|webp|avif)$ [NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
