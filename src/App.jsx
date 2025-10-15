@@ -13,6 +13,7 @@ import Blogs from "./Pages/blogs.jsx";
 import Blogsdescription from "./Pages/blogsdescription.jsx";
 
 import { ParallaxProvider } from "react-scroll-parallax";
+import BottomNavbar from "./Compoment/BottomNavbar.jsx";
 // import Homepast from "./Pages/homepast.jsx";
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
     <ParallaxProvider>
     <Router basename="/acmwebsite2025">
       <Navbar />
-
+      <BottomNavbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />

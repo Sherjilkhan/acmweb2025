@@ -8,7 +8,7 @@ const Team = () => {
   const highlightRef = useRef(null);
   const containerRef = useRef(null);
 
-  const options = ["2024-2025", "2023-2024", "2022-2023"];
+  const options = ["2025-2026","2024-2025", "2023-2024", "2022-2023"];
 
   const moveHighlight = useCallback(() => {
     const currentOption = optionRefs.current[activeIndex];

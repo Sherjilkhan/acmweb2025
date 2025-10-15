@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import events from "../assets/EventData/eventdata";
-import { Input } from "../Compoment/Input";
-import { Label } from "../Compoment/Label";
-import styles from "./styles-form-demo.module.css";
+
 import RegistrationForm from "../Compoment/RegistrationForm";
 
 const EventDescription = () => {
