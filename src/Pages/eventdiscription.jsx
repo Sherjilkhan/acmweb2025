@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import events from "../assets/EventData/eventdata";
-<<<<<<< HEAD
-
-=======
 import { Input } from "../Compoment/Input";
 import { Label } from "../Compoment/Label";
 import styles from "./styles-form-demo.module.css";
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
 import RegistrationForm from "../Compoment/RegistrationForm";
 
 const EventDescription = () => {
@@ -138,13 +134,8 @@ const EventDescription = () => {
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-<<<<<<< HEAD
-                width="16"
-                height="16"
-=======
                 width="20"
                 height="20"
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
                 fill="white"
                 class="bi bi-calendar-week"
                 viewBox="0 0 16 16"
@@ -160,13 +151,8 @@ const EventDescription = () => {
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-<<<<<<< HEAD
-                width="16"
-                height="16"
-=======
                 width="20"
                 height="20"
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
                 fill="white"
                 class="bi bi-geo-alt-fill"
                 viewBox="0 0 16 16"
@@ -180,13 +166,8 @@ const EventDescription = () => {
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-<<<<<<< HEAD
-                width="16"
-                height="16"
-=======
                 width="20"
                 height="20"
->>>>>>> 46ab44f6a2674a2584aa276a9cd3e992622d9325
                 fill="white"
                 class="bi bi-hourglass-bottom"
                 viewBox="0 0 16 16"
