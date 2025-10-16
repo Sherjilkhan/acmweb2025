@@ -44,7 +44,7 @@ import ky1 from "/assets/Event-data/ky1.jpg";
 import ky2 from "/assets/Event-data/ky2.jpg";
 import ky3 from "/assets/Event-data/ky3.jpg";
 import vr1 from "/assets/Event-data/vr1.jpg";
-import vr2 from "/assets/Event-data/vr2.jpg";
+import vr2 from "/assets/Event-data/vr2.png";
 import vr3 from "/assets/Event-data/vr3.jpg";
 import wip1 from "/assets/Event-data/wip1.jpg";
 import wip2 from "/assets/Event-data/wip2.JPG";

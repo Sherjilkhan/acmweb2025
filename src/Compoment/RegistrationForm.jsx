@@ -37,29 +37,29 @@ const RegistrationForm = ({ EventName }) => {
         <form onSubmit={handleContinue} className="glass-form">
           <h2>Fill in your details to secure your spot</h2>
 
-          <label>Email *</label>
+          <label>Email </label>
           <input name="email" type="email" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
-              <label>Full Name *</label>
+              <label>Full Name </label>
               <input name="name" onChange={handleChange} required />
             </div>
             <div>
-              <label>College Name *</label>
+              <label>College Name </label>
               <input name="cllg" onChange={handleChange} required />
             </div>
           </div>
 
-          <label>Phone Number *</label>
+          <label>Phone Number </label>
           <input name="phone" onChange={handleChange} required />
 
-          <label>Branch *</label>``
+          <label>Branch </label>
           <input name="branch" onChange={handleChange} required />
 
           <div className="input-row">
             <div>
-              <label>Batch *</label>
+              <label>Batch </label>
               <select name="batch" onChange={handleChange} required>
                 <option value="">Select</option>
                 <option>FE</option>
@@ -69,15 +69,15 @@ const RegistrationForm = ({ EventName }) => {
               </select>
             </div>
             <div>
-              <label>Division *</label>
+              <label>Division </label>
               <input name="division" onChange={handleChange} required />
             </div>
           </div>
 
-          <label>Roll Number *</label>
+          <label>Roll Number </label>
           <input name="rollNumber" onChange={handleChange} required />
 
-          <label>ACM Member? *</label>
+          <label>ACM Member? </label>
           <div className="radio-group">
             <label>
               <input

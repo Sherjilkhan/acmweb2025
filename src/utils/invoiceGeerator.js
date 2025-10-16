@@ -4,145 +4,187 @@ export const generateInvoice = (data, txnId) => {
   const doc = new jsPDF();
 
   // --- Aesthetic Constants ---
-  const PRIMARY_COLOR = [25, 25, 112]; // Midnight Blue (for headers/lines)
-  const SECONDARY_COLOR = [100, 100, 100]; // Medium Grey (for labels)
-  const TEXT_COLOR = [30, 30, 30]; // Dark Grey/Black (for values)
-  const LINE_COLOR = [200, 200, 200]; // Light Grey
+  const PRIMARY_COLOR = [25, 25, 112]; // Midnight Blue
+  const SECONDARY_COLOR = [100, 100, 100]; // Grey for labels
+  const TEXT_COLOR = [30, 30, 30]; // Dark text
+  const LINE_COLOR = [200, 200, 200]; // Light grey lines
 
   const PAGE_WIDTH = doc.internal.pageSize.getWidth();
   const MARGIN_LEFT = 20;
   const MARGIN_RIGHT = PAGE_WIDTH - 20;
-  
-  let y = 20; // Start with more top margin
+  let y = 20;
 
-  // --- 1. Title/Header Section ---
-  
+  // --- 1. Organization Header ---
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(28);
+  doc.setFontSize(20);
   doc.setTextColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
-  doc.text("INVOICE", MARGIN_LEFT, y);
-  
-  y += 5; // Space for the line
-  
-  // Thick primary line under the title
-  doc.setDrawColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
-  doc.setLineWidth(1.5);
-  doc.line(MARGIN_LEFT, y, MARGIN_RIGHT, y);
-  
-  // --- 2. Invoice Details (Top Right) ---
+  doc.text("RAIT ACM STUDENT CHAPTER", MARGIN_LEFT, y);
+
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
   doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
-  
-  const detailX = 150; // X position for labels
-  const valueX = 175;  // X position for values
-
-  y = 30; // Reset Y to place details alongside the header
-
-  // Invoice Date
-  doc.text("Date:", detailX, y);
-  doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
-  doc.text(new Date().toLocaleDateString(), valueX, y);
-
   y += 6;
-  
-  // Invoice ID
-  doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
-  doc.text("Invoice ID:", detailX, y);
-  doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
-  doc.text(txnId || 'N/A', valueX, y); // Added robustness for txnId
+  doc.text("Ramrao Adik Institute of Technology, Nerul, Navi Mumbai, Maharashtra", MARGIN_LEFT, y);
+  y += 5;
+  doc.text("Email: raitacmchapter@gmail.com | Phone: +91-XXXXXXXXXX", MARGIN_LEFT, y);
 
-  // --- 3. Registration Details (Table Look) ---
-  
-  y = 65; // Starting position for the main details section
+  // Divider line
+  y += 5;
+  doc.setDrawColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
+  doc.setLineWidth(1.2);
+  doc.line(MARGIN_LEFT, y, MARGIN_RIGHT, y);
 
-  doc.setFontSize(14);
+  // --- 2. Invoice Header ---
+  y += 15;
   doc.setFont("helvetica", "bold");
+  doc.setFontSize(26);
+  doc.setTextColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
+  doc.text("INVOICE", MARGIN_LEFT, y);
+
+  // Invoice details on top-right
+  const detailX = 140;
+  const valueX = 180;
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
+
+  doc.text("Date:", detailX, y - 10);
+  doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
+  doc.text(new Date().toLocaleDateString(), valueX, y - 10);
+
+  doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
+  doc.text("Invoice ID:", detailX, y - 4);
+  doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
+  doc.text(txnId || "N/A", valueX, y - 4);
+
+  // --- 3. Registration Details Section ---
+  y += 15;
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
   doc.setTextColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
   doc.text("REGISTRATION DETAILS", MARGIN_LEFT, y);
 
   y += 5;
-  // Light separator line
   doc.setDrawColor(LINE_COLOR[0], LINE_COLOR[1], LINE_COLOR[2]);
   doc.setLineWidth(0.5);
   doc.line(MARGIN_LEFT, y, MARGIN_RIGHT, y);
-  
-  y += 8;
+  y += 10;
 
-  // Ensure all data points are strings for jsPDF.text()
   const details = [
-    ["Event", data.eventName],
-    ["Name", data.name],
-    ["Email", data.email],
-    ["Phone No.", data.phone],
-    ["Branch/Year/Div", `${data.branch || ''} / ${data.batch || ''} / ${data.division || ''}`.trim() || 'N/A'],
-    ["Roll No", data.rollNumber],
-    ["ACM Member", data.acmMember],
+    ["Event", data.eventName || "N/A"],
+    ["Participant Name", data.name || "N/A"],
+    ["Email", data.email || "N/A"],
+    ["Phone No.", data.phone || "N/A"],
+    [
+      "Branch / Year / Division",
+      `${data.branch || ""} / ${data.batch || ""} / ${data.division || ""}`.trim() || "N/A",
+    ],
+    ["Roll No.", data.rollNumber || "N/A"],
+    ["ACM Member", data.acmMember || "N/A"],
   ];
 
   const col1X = MARGIN_LEFT;
   const col2X = 80;
   const rowHeight = 8;
 
-  details.forEach(([k, v]) => {
-    // Robustness: Convert value to string and default to 'N/A' if null/undefined
-    const valueString = String(v || 'N/A'); 
-
-    // Key (Label)
+  details.forEach(([label, value]) => {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(11);
-    doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]); 
-    doc.text(k + ":", col1X, y);
+    doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
+    doc.text(label + ":", col1X, y);
 
-    // Value
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]); 
-    doc.text(valueString, col2X, y);
+    doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
+    doc.text(String(value), col2X, y);
 
     y += rowHeight;
   });
 
-  // --- 4. Payment Summary ---
-  
-  // The y variable now holds the position after the last detail line.
-  y += 15; 
-  
-  // Line above total
+  // --- 4. Payment Summary Section ---
+  y += 10;
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.setTextColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
+  doc.text("PAYMENT SUMMARY", MARGIN_LEFT, y);
+
+  y += 5;
   doc.setDrawColor(LINE_COLOR[0], LINE_COLOR[1], LINE_COLOR[2]);
-  doc.setLineWidth(0.5);
-  doc.line(130, y, MARGIN_RIGHT, y); 
+  doc.line(MARGIN_LEFT, y, MARGIN_RIGHT, y);
+  y += 10;
 
-  y += 8;
   const amountPaid = data.acmMember === "Yes" ? "₹50.00" : "₹100.00";
+  const paymentSummary = [
+    ["Description", "Amount (₹)"],
+    ["Registration Fee", amountPaid],
+    ["Payment Mode", "Online / UPI"],
+    ["Transaction ID", txnId || "N/A"],
+  ];
 
-  // Label
+  const colA = MARGIN_LEFT;
+  const colB = 130;
+  const rowGap = 8;
+
+  paymentSummary.forEach(([key, val], index) => {
+    doc.setFont("helvetica", index === 0 ? "bold" : "normal");
+    doc.setFontSize(11);
+    doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
+    doc.text(key, colA, y);
+    doc.text(val, colB, y, { align: "right" });
+    y += rowGap;
+  });
+
+  // Line before total
+  y += 5;
+  doc.setLineWidth(0.5);
+  doc.setDrawColor(LINE_COLOR[0], LINE_COLOR[1], LINE_COLOR[2]);
+  doc.line(130, y, MARGIN_RIGHT, y);
+  y += 8;
+
+  // Total
   doc.setFont("helvetica", "bold");
   doc.setFontSize(16);
   doc.setTextColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
   doc.text("TOTAL AMOUNT PAID:", 135, y, { align: "right" });
 
-  // Value
   doc.setFontSize(16);
   doc.setTextColor(TEXT_COLOR[0], TEXT_COLOR[1], TEXT_COLOR[2]);
   doc.text(amountPaid, MARGIN_RIGHT, y, { align: "right" });
 
-  y += 5; // Space for the final line
-
-  // Thick primary line below total
-  doc.setLineWidth(1.5);
+  // Final underline
+  y += 5;
   doc.setDrawColor(PRIMARY_COLOR[0], PRIMARY_COLOR[1], PRIMARY_COLOR[2]);
+  doc.setLineWidth(1.2);
   doc.line(130, y, MARGIN_RIGHT, y);
-  
-  // --- 5. Footer ---
-  
-  const FOOTER_Y = 280; // Fixed position near the bottom
 
-  doc.setFontSize(9);
+  // --- 5. Notes Section ---
+  y += 20;
   doc.setFont("helvetica", "italic");
+  doc.setFontSize(10);
   doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
-  doc.text("Thank you for your registration. This is an automatically generated receipt.", 
-          PAGE_WIDTH / 2, FOOTER_Y, { align: "center" });
+  doc.text(
+    "Note: Please retain this invoice for future reference or event entry verification.",
+    MARGIN_LEFT,
+    y
+  );
+  y += 6;
+  doc.text(
+    "This is a computer-generated invoice. No signature required.",
+    MARGIN_LEFT,
+    y
+  );
+
+  // --- 6. Footer ---
+  const FOOTER_Y = 280;
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(9);
+  doc.setTextColor(SECONDARY_COLOR[0], SECONDARY_COLOR[1], SECONDARY_COLOR[2]);
+  doc.text(
+    "Thank you for participating in " ,data.eventName,
+    PAGE_WIDTH / 2,
+    FOOTER_Y,
+    { align: "center" }
+  );
 
   doc.save("Registration_Invoice.pdf");
 };
