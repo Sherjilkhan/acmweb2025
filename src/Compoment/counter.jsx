@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import "./component.css"
 const Counter = ({ target = 100, duration = 2000 }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -42,6 +42,7 @@ const Counter = ({ target = 100, duration = 2000 }) => {
 
   return (
     <div
+      className="counter"
       ref={counterRef}
       style={{
         fontSize: "2rem",

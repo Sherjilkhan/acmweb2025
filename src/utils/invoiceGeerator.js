@@ -72,11 +72,11 @@ export const generateInvoice = (data, txnId) => {
   // Ensure all data points are strings for jsPDF.text()
   const details = [
     ["Event", data.eventName],
-    ["Name", `${data.firstName || ''} ${data.lastName || ''}`.trim() || 'N/A'],
+    ["Name", data.name],
     ["Email", data.email],
-    ["WhatsApp", data.whatsapp],
-    ["Branch/Year/Div", `${data.branch || ''} / ${data.year || ''} / ${data.division || ''}`.trim() || 'N/A'],
-    ["Roll No", data.roll],
+    ["Phone No.", data.phone],
+    ["Branch/Year/Div", `${data.branch || ''} / ${data.batch || ''} / ${data.division || ''}`.trim() || 'N/A'],
+    ["Roll No", data.rollNumber],
     ["ACM Member", data.acmMember],
   ];
 

@@ -22,6 +22,7 @@ import evntvid from "../assets/Eventpage-hero.mp4";
 import events from "../assets/EventData/eventdata"; 
 import Announcemnt from "../Compoment/announcement";
 import Counter from "../Compoment/counter";
+
 const images = [
   "public/assets/Event-data/hoc1.jpg",
   "public/assets/Event-data/vr1.jpg",
@@ -54,6 +55,7 @@ const Home = () => {
   return (
     <div className="home">
       <Announcemnt />
+      
       {/* Hero Section */}
       <div className="hero">
         <div className="hero-thumb">

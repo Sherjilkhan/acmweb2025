@@ -281,7 +281,9 @@ button {
   
   padding: 15px;
   border-radius: 3rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  background-color: #7da0ca64;
+  box-shadow:inset 0 0 0.4rem white;
+  border: 1px solid #0210245f;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -296,10 +298,7 @@ button {
   }
 }
 
-.announcement{
-  color: #021024;
-  background-color: rgba(255, 255, 255, 0.693);
-}
+
 .announcement-content {
   display: flex;
   align-items: center;
@@ -531,4 +530,33 @@ button {
   .navbar-container {
     display: none;
   }
+  .announcement-container{
+    top: 20px;
+    right: 10px;
+  }
+  .announcement{
+    width: 80vw;
+  background-color: #7da0ca64;
+  box-shadow:inset 0 0 0.4rem white;
+  border: 1px solid #0210245f;
+    
+  }
+  .announcement-text{
+    font-size: 0.7rem;
+  }
+  /* .counter{
+  font-size: 0.9rem !important;
+} */
+ .Footer{
+  padding-bottom: 20vh !important;
+ }
+ .footer-links{
+  width: 60%;
+  font-size: 0.8rem;
+  a{
+    padding: 5%;
+
+  }
+ }
+ 
 }

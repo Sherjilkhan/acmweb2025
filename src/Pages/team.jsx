@@ -268,7 +268,7 @@ const Team = () => {
       {/* SAI Cores */}
       {saiCores.length > 0 && (
         <>
-          <h2>Our ACM SIG-AI Core Team</h2>
+          <h2>Our ACM SIG-AI  Team</h2>
           <h4>Meet Our AI Heros.</h4>
 
           <div className="card-grid">

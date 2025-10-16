@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users, CalendarDays, BookOpen } from "lucide-react";
-// import logo from "../assets/logo.png"; // replace with your logo path
+import { Home, Users, CalendarDays, BookOpen, Image } from "lucide-react"; // added Image icon
 import "./bottomNavbar.css";
 
 const BottomNavbar = () => {
@@ -10,13 +9,14 @@ const BottomNavbar = () => {
   const links = [
     { name: "Home", path: "/", icon: <Home size={22} /> },
     { name: "Events", path: "/events", icon: <CalendarDays size={22} /> },
+    { name: "Gallery", path: "/gallery", icon: <Image size={22} /> }, // ✅ new gallery button
     { name: "Team", path: "/our-team", icon: <Users size={22} /> },
     { name: "Blog", path: "/blog", icon: <BookOpen size={22} /> },
   ];
 
   return (
     <div className="bottom-navbar">
-     
+      
       {links.map((link, index) => (
         <Link
           key={index}
